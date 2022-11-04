@@ -1,0 +1,45 @@
+<p-dataView #dataView [value]="recipeList" filterBy="name">
+
+    <ng-template pTemplate="header" class="">
+        <div class="flex justify-content-between">
+            <div><span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText placeholder="Search" [(ngModel)]="textFilter"
+                        (input)="applyGlobalFilter()" />
+                </span>
+            </div>
+            <div class="flex align-items-center">
+                <p-dataViewLayoutOptions class="mr-2"></p-dataViewLayoutOptions>
+                <p-button class="p-button-sm" label="Ajouter" icon="pi pi-plus"></p-button>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template let-recipe pTemplate="listItem">
+        <div class="col-12 p-2 flex justify-content-between">
+            <div class="flex justify-content-between w-11" (mouseover)="recipe.display=true"
+                (mouseout)="recipe.display=false">
+                <h4 class="flex align-items-center justify-content-center">{{recipe.name}}</h4>
+                <div><img src="assets/cooking-book.png" height="100"></div>
+            </div>
+            <div class="flex align-items-center justify-content-center w-1">
+                <p-button class="p-button-sm fadeinleft animation-duration-100" icon="pi pi-external-link"
+                    *ngIf="recipe.display"></p-button>
+                <p-button class="p-button-danger p-button-sm" icon="pi pi-ellipsis-v" *ngIf="!recipe.display">
+                </p-button>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template let-recipe pTemplate="gridItem">
+        <div class="col-12 lg:col-6 xl:col-3 p-1">
+            <div class="border-round shadow-3 p-2">
+                <h4 class="mb-2">{{recipe.name}}</h4>
+                <div class="flex justify-content-center w-full">
+                    <img src="assets/cooking-book.png" height="100">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</p-dataView>
