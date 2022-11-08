@@ -17,15 +17,17 @@
 
     <ng-template let-recipe pTemplate="listItem">
         <div class="col-12 p-2 flex justify-content-between">
-            <div class="flex justify-content-between w-11" (mouseover)="recipe.display=true"
-                (mouseout)="recipe.display=false">
+            <div class="flex-grow-1 flex justify-content-between cursor-pointer" (mouseover)="recipe.display=true"
+                (mouseout)="recipe.display=false" (click)="openRecipe(recipe)">
                 <h4 class="flex align-items-center justify-content-center">{{recipe.name}}</h4>
-                <div><img src="assets/cooking-book.png" height="100"></div>
+                <div><img class="shadow-2" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'"
+                        height="150"></div>
             </div>
-            <div class="flex align-items-center justify-content-center w-1">
+            <div class="flex-none flex align-items-center mx-3">
                 <p-button class="p-button-sm fadeinleft animation-duration-100" icon="pi pi-external-link"
                     *ngIf="recipe.display"></p-button>
-                <p-button class="p-button-danger p-button-sm" icon="pi pi-ellipsis-v" *ngIf="!recipe.display">
+                <p-button class="p-button-danger p-button-sm" icon="pi pi-ellipsis-v" *ngIf="!recipe.display"
+                    (click)="currentRecipe = recipe; menu.toggle($event)">
                 </p-button>
             </div>
         </div>
@@ -33,13 +35,27 @@
 
     <ng-template let-recipe pTemplate="gridItem">
         <div class="col-12 lg:col-6 xl:col-3 p-1">
-            <div class="border-round shadow-3 p-2">
-                <h4 class="mb-2">{{recipe.name}}</h4>
-                <div class="flex justify-content-center w-full">
-                    <img src="assets/cooking-book.png" height="100">
+            <div class="relative">
+                <div class="relative border-round shadow-3 p-2 cursor-pointer" (click)="openRecipe(recipe)"
+                    (mouseover)="recipe.display=true" (mouseout)="recipe.display=false">
+                    <h4 class="my-2">{{recipe.name}}</h4>
+                    <div class="flex justify-content-center w-full">
+                        <img class="shadow-2" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'"
+                            height="150">
+                    </div>
+                </div>
+                <div class="absolute top-50 right-0 m-3">
+                    <p-button class="p-button-sm fadeinleft animation-duration-100" icon="pi pi-external-link"
+                        *ngIf="recipe.display"></p-button>
+                    <p-button class="p-button-danger p-button-sm" icon="pi pi-ellipsis-v" *ngIf="!recipe.display"
+                        (click)="currentRecipe = recipe; menu.toggle($event)">
+                    </p-button>
                 </div>
             </div>
         </div>
     </ng-template>
 
 </p-dataView>
+
+<button type="button" pButton icon="pi pi-list" label="Show" (click)="menu.toggle($event)"></button>
+<p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
