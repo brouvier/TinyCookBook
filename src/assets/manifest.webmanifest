@@ -1,0 +1,14 @@
+{
+    "name": "My Tiny Cook Book",
+    "short_name": "Cook Book",
+    "start_url": "../",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Compolation de recette de cuisine.",
+    "icons": [
+        {
+            "src": "cooking-book.png",
+            "sizes": "150x150"
+        }
+    ]
+}
