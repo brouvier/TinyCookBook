@@ -1,17 +1,20 @@
-<p-dataView #dataView [value]="recipeList" filterBy="name">
+<p-dataView #dataView [value]="recipeList" filterBy="name" layout="grid">
 
     <ng-template pTemplate="header" class="">
-        <div class="flex justify-content-between">
-            <div><span class="p-input-icon-left">
+        <div class="grid">
+            <div class="col-12 md:col-6">
+                <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
                     <input type="text" pInputText placeholder="Search" [(ngModel)]="textFilter"
-                        (input)="applyGlobalFilter()" />
+                        (input)="applyGlobalFilter()"/>
                 </span>
             </div>
-            <div class="flex align-items-center">
+            <div class="col-12 md:col-6 flex justify-content-end">
+                <div class="flex align-items-center">
                 <p-dataViewLayoutOptions class="mr-2"></p-dataViewLayoutOptions>
                 <p-button class="p-button-sm" label="Ajouter" icon="pi pi-plus"></p-button>
             </div>
+        </div>
         </div>
     </ng-template>
 
@@ -20,10 +23,9 @@
             <div class="flex-grow-1 flex justify-content-between cursor-pointer" (mouseover)="recipe.display=true"
                 (mouseout)="recipe.display=false" (click)="openRecipe(recipe)">
                 <h4 class="flex align-items-center justify-content-center">{{recipe.name}}</h4>
-                <div><img class="shadow-2" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'"
-                        height="150"></div>
+                <div><img class="shadow-2 w-8rem" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'"></div>
             </div>
-            <div class="flex-none flex align-items-center mx-3">
+            <div class="flex-none flex align-items-center mx-1 md:mx-3">
                 <p-button class="p-button-sm fadeinleft animation-duration-100" icon="pi pi-external-link"
                     *ngIf="recipe.display"></p-button>
                 <p-button class="p-button-danger p-button-sm" icon="pi pi-ellipsis-v" *ngIf="!recipe.display"
@@ -40,8 +42,7 @@
                     (mouseover)="recipe.display=true" (mouseout)="recipe.display=false">
                     <h4 class="my-2">{{recipe.name}}</h4>
                     <div class="flex justify-content-center w-full">
-                        <img class="shadow-2" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'"
-                            height="150">
+                        <img class="shadow-2 w-8rem" [src]="recipe.imgPath ? recipe.imgPath : 'assets/cooking-book.png'">
                     </div>
                 </div>
                 <div class="absolute top-50 right-0 m-3">
@@ -57,5 +58,4 @@
 
 </p-dataView>
 
-<button type="button" pButton icon="pi pi-list" label="Show" (click)="menu.toggle($event)"></button>
 <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
