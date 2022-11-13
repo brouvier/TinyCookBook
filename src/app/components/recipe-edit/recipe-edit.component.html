@@ -1,0 +1,22 @@
+<h5 class="mt-0 mb-2">Nom de la recette</h5>
+<input type="text" pInputText class="w-full" [(ngModel)]="recipe.name" autofocus />
+
+<h5 class="mb-2">Adresse de la recette</h5>
+<input type="text" pInputText class="w-full" [(ngModel)]="recipe.path" />
+
+<h5 class="mb-2">Adresse de l'image</h5>
+<input type="text" pInputText class="w-full" [(ngModel)]="recipe.imgPath" />
+
+<h5 class="mb-2">Mots clés</h5>
+<input type="text" pInputText class="w-full" [(ngModel)]="recipe.keywords" />
+
+<h5 class="mb-2">Commentaire</h5>
+<p-editor [(ngModel)]="recipe.comment" [style]="{'height':'320px'}"></p-editor>
+
+
+
+<div class="m-2 flex justify-content-end">
+    <button pButton pRipple type="button" label="Annuler" class="p-button-secondary p-button-text m-2"
+        (click)="cancel()"></button>
+    <button pButton pRipple type="button" label="Enregistrer" class="p-button-success m-2" (click)="save()"></button>
+</div>

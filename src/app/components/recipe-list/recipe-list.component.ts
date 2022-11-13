@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MenuItem, MessageService } from 'primeng/api';
+import { ConfirmationService, ConfirmEventType, MenuItem, MessageService } from 'primeng/api';
 import { DataView } from 'primeng/dataview';
 import { Recipe, RecipeService } from 'src/app/services/recipe.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { RecipeEditComponent } from '../recipe-edit/recipe-edit.component';
 
 @Component({
   selector: 'app-recipe-list',
@@ -20,7 +22,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   menuItems: MenuItem[];
 
-  constructor(private recipeSer: RecipeService, private messageServ: MessageService) {
+  commentDisplay: boolean = false;
+
+  constructor(private recipeSer: RecipeService, private confirmationServ: ConfirmationService, private dialogServ: DialogService, private messageServ: MessageService) {
     this.menuItems = [
       { label: 'Voir le commentaire', icon: 'pi pi-eye', command: () => this.show() },
       { label: 'Editer la recette', icon: 'pi pi-fw pi-pencil', command: () => this.update() },
@@ -46,19 +50,40 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   show() {
     if (this.currentRecipe) {
-      this.messageServ.add({ severity: 'success', summary: 'Affichage du commentaire', detail: this.currentRecipe.name });
+      this.commentDisplay = true;
     }
   }
 
   update() {
     if (this.currentRecipe) {
+      const ref = this.dialogServ.open(RecipeEditComponent, {
+        header: 'Edition',
+        width: '70%',
+        data: this.currentRecipe
+      });
+
+
       this.messageServ.add({ severity: 'info', summary: 'Mise à jour de la recette', detail: this.currentRecipe.name });
     }
   }
 
   delete() {
     if (this.currentRecipe) {
-      this.messageServ.add({ severity: 'warn', summary: 'Suppression de la recette', detail: this.currentRecipe.name });
+      this.confirmationServ.confirm({
+        message: "Souhaitez vous supprimer la recette '" + this.currentRecipe.name + "' ?",
+        header: 'Confirmation',
+        acceptLabel: "Supprimer",
+        acceptIcon: "pi pi-trash",
+        acceptButtonStyleClass: "p-button-danger",
+        rejectLabel: "Annuler",
+        rejectButtonStyleClass: "p-button-secondary p-button-text",
+        accept: () => {
+          this.recipeSer.delRecipe(this.currentRecipe!);
+        },
+        reject: () => {
+          this.messageServ.add({ severity: 'info', summary: 'Annulation', detail: 'Suppression de la recette annulée' });
+        }
+      });
     }
   }
 

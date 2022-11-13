@@ -11,6 +11,7 @@ import localeFr from '@angular/common/locales/fr';
 import { RecipeService } from './services/recipe.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { MenuModule } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
+import { EditorModule } from 'primeng/editor';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -44,10 +49,15 @@ registerLocaleData(localeFr, 'fr');
     DataViewModule,
     MenuModule,
     ToastModule,
+    EditorModule,
+    DialogModule,
+    ConfirmDialogModule,
+    DynamicDialogModule,
   ],
   providers: [
     MessageService,
     DialogService,
+    ConfirmationService,
     RecipeService,
 
     { provide: LOCALE_ID, useValue: 'fr' },
