@@ -18,7 +18,11 @@ export class RecipeEditComponent implements OnInit {
   }
 
   save() {
-    this.recipeSer.updateRecipe(this.recipe, () => { this.cancel() });
+    if (this.recipe.id) {
+      this.recipeSer.updateRecipe(this.recipe, () => { this.cancel() });
+    } else {
+      this.recipeSer.insertRecipe(this.recipe, () => { this.cancel() });
+    }
   }
 
   cancel() {

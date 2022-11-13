@@ -1,86 +1,74 @@
 [
     {
+        "id": 0,
         "name": "Casserole de lentilles au potiron",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/casserole-de-lentilles-au-potiron-84509.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2015/12/06/i82276-casserole-de-lentilles-au-potiron.webp",
-        "comment": "<p>plop</p>"
+        "imgPath": "https://img.cuisineaz.com/660x660/2015/12/06/i82276-casserole-de-lentilles-au-potiron.webp"
     },
     {
+        "id": 0,
         "name": "Lasagnes végétariennes",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/lasagnes-vegetariennes-84679.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2015/12/13/i91713-lasagnes-vegetariennes.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2015/12/13/i91713-lasagnes-vegetariennes.webp"
     },
     {
+        "id": 0,
         "name": "Crêpes",
-        "display": false,
         "path": "https://cuisine.journaldesfemmes.fr/recette/333415-recette-de-crepes-la-meilleure-recette-rapide",
-        "imgPath": "https://img-3.journaldesfemmes.fr/Qf4POYz6ateXL7_PU55SSeKNKf4=/750x500/smart/a5181741d55b4b3d8b54bda593ff87f5/recipe-jdf/10021667.jpg",
-        "comment": ""
+        "imgPath": "https://img-3.journaldesfemmes.fr/Qf4POYz6ateXL7_PU55SSeKNKf4=/750x500/smart/a5181741d55b4b3d8b54bda593ff87f5/recipe-jdf/10021667.jpg"
     },
     {
+        "id": 0,
         "name": "Gratin de riz au potiron",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/gratin-de-riz-au-potiron-8008.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2017/03/23/i124077-gratin-de-riz-au-potiron.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2017/03/23/i124077-gratin-de-riz-au-potiron.webp"
     },
     {
+        "id": 0,
         "name": "Risotto aux cèpes facile",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/risotto-aux-cepes-facile-76355.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2015/09/14/i93743-risotto-aux-cepes-facile.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2015/09/14/i93743-risotto-aux-cepes-facile.webp"
     },
     {
+        "id": 0,
         "name": "Poêlée de riz aux poireaux, champignons et parmesan",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/poelee-de-riz-aux-poireaux-champignons-et-parmesan-72766.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2016/02/02/i86134-poelee-de-riz-aux-poireaux-champignons-et-parmesan.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2016/02/02/i86134-poelee-de-riz-aux-poireaux-champignons-et-parmesan.webp"
     },
     {
+        "id": 0,
         "name": "Salade de riz aux brocolis, chèvre et olives",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/salade-de-riz-aux-brocolis-chevre-et-olives-55342.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2013/12/20/i99691-salade-riz-chevre-brocoli.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2013/12/20/i99691-salade-riz-chevre-brocoli.webp"
     },
     {
+        "id": 0,
         "name": "Spaghettis aux champignons",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/spaghettis-aux-champignons-38156.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2022/09/05/i186628-spaghettis-aux-champignons.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2022/09/05/i186628-spaghettis-aux-champignons.webp"
     },
     {
+        "id": 0,
         "name": "Crumble pomme noix",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/crumble-pomme-noix-103926.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2018/10/01/i143109-crumble-pomme-noix.webp",
-        "comment": "<p>plop</p>"
+        "imgPath": "https://img.cuisineaz.com/660x660/2018/10/01/i143109-crumble-pomme-noix.webp"
     },
     {
+        "id": 0,
         "name": "Galettes de carottes à la ricotta et au persil",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/galettes-de-carottes-a-la-ricotta-et-au-persil-72506.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2016/02/18/i71909-galettes-de-carottes-a-la-ricotta-et-au-persil.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2016/02/18/i71909-galettes-de-carottes-a-la-ricotta-et-au-persil.webp"
     },
     {
+        "id": 0,
         "name": "Gratin de courgettes à la ricotta",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/gratin-de-courgettes-a-la-ricotta-54699.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2016/03/17/i106517-gratin-raviole-de-cathy.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2016/03/17/i106517-gratin-raviole-de-cathy.webp"
     },
     {
+        "id": 0,
         "name": "Cannelloni épinards ricotta et béchamel",
-        "display": false,
         "path": "https://www.cuisineaz.com/recettes/cannelloni-epinards-ricotta-et-bechamel-96234.aspx",
-        "imgPath": "https://img.cuisineaz.com/660x660/2017/02/27/i121487-cannelloni-aux-epinards-et-a-la-ricotta.webp",
-        "comment": ""
+        "imgPath": "https://img.cuisineaz.com/660x660/2017/02/27/i121487-cannelloni-aux-epinards-et-a-la-ricotta.webp"
     }
 ]

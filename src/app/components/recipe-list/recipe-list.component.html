@@ -12,7 +12,7 @@
             <div class="col-12 md:col-6 flex justify-content-end">
                 <div class="flex align-items-center">
                     <p-dataViewLayoutOptions class="mr-2"></p-dataViewLayoutOptions>
-                    <p-button class="p-button-sm" label="Ajouter" icon="pi pi-plus"></p-button>
+                    <p-button class="p-button-sm" label="Ajouter" icon="pi pi-plus" (onClick)="insert()"></p-button>
                 </div>
             </div>
         </div>
@@ -69,3 +69,5 @@
         <p-button icon="pi pi-check" (click)="commentDisplay=false" label="Ok" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-dialog>
+
+<pre>{{recipeList | json}}</pre>

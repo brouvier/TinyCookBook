@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ConfirmationService, ConfirmEventType, MenuItem, MessageService } from 'primeng/api';
 import { DataView } from 'primeng/dataview';
-import { Recipe, RecipeService } from 'src/app/services/recipe.service';
+import { EMPTY_RECIPE, Recipe, RecipeService } from 'src/app/services/recipe.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { RecipeEditComponent } from '../recipe-edit/recipe-edit.component';
 
@@ -54,6 +54,14 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     }
   }
 
+  insert() {
+    const ref = this.dialogServ.open(RecipeEditComponent, {
+      header: "Création d'une recette",
+      width: '70%',
+      data: EMPTY_RECIPE
+    });
+  }
+
   update() {
     if (this.currentRecipe) {
       const ref = this.dialogServ.open(RecipeEditComponent, {
@@ -61,9 +69,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         width: '70%',
         data: this.currentRecipe
       });
-
-
-      this.messageServ.add({ severity: 'info', summary: 'Mise à jour de la recette', detail: this.currentRecipe.name });
     }
   }
 

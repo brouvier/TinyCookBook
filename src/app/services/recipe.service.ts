@@ -5,8 +5,16 @@ import { MessageService } from "primeng/api";
 
 
 export interface Recipe {
-    name: string; display: boolean, path: string, imgPath?: string,
-    comment?: string, keywords?: string, filterKeyWorkds?: string
+    id?: number,
+    name: string, path: string,
+    imgPath?: string, comment?: string, keywords?: string,
+
+    display?: boolean, filterKeyWorkds?: string
+}
+
+export const EMPTY_RECIPE: Recipe = {
+    name: "",
+    path: ""
 }
 
 @Injectable()
@@ -38,7 +46,10 @@ export class RecipeService {
             return 0;
         });
         const recipes = [...this.recipes];
-        recipes.forEach(r => r.filterKeyWorkds = r.name + " " + r.keywords);
+        recipes.forEach(r => {
+            r.display = false;
+            r.filterKeyWorkds = r.name + " " + r.keywords;
+        });
         this.recipesSubject$.next(recipes);
     }
 
@@ -56,6 +67,14 @@ export class RecipeService {
             return obj.name !== recipe.name;
         });
         this.messageServ.add({ severity: 'warn', summary: 'Suppression', detail: 'Recette supprimée' });
+        this.sendRecipe();
+    }
+
+    public insertRecipe(recipe: Recipe, callback: Function) {
+        recipe.id = 1;
+        this.recipes.push(recipe);
+        this.messageServ.add({ severity: 'info', summary: 'Création de la recette', detail: recipe.name });
+        callback();
         this.sendRecipe();
     }
 
