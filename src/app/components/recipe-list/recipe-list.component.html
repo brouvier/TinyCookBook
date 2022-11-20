@@ -70,4 +70,4 @@
     </ng-template>
 </p-dialog>
 
-<pre>{{recipeList | json}}</pre>
+<pre *ngIf="!production">{{recipeList | json}}</pre>

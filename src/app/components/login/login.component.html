@@ -1,0 +1,12 @@
+<div class="w-full flex justify-content-center">
+    <form autocomplete="on">
+        <h3 class="mb-3">Utilisez le mot de passe pour déverouiller l'application :</h3>
+        <input type="password" pPassword class="mb-3 w-full" [(ngModel)]="loginForm.password"
+            [ngModelOptions]="{standalone: true}" [feedback]="false" />
+
+        <button pButton type="submit" class="w-full" label="Valider" icon="pi pi-lock-open"
+            (click)="sendForm()"></button>
+    </form>
+</div>
+
+<pre *ngIf="!production">{{loginForm | json}}</pre>
