@@ -97,7 +97,7 @@ export class RecipeService {
         });
     }
 
-    private select() { return this.httpClient.get<Recipe[]>(this.apiRecipePath + '?by=name', { headers: this.security.getAppTocken() }) }
+    private select() { return this.httpClient.get<Recipe[]>(this.apiRecipePath + '?by=name' + environment.apiLimit, { headers: this.security.getAppTocken() }) }
     private insert(recipe: Recipe) { return this.httpClient.post<ApiResponse>(this.apiRecipePath, recipe, { headers: this.security.getAppTocken() }) }
     private update(recipe: Recipe) { return this.httpClient.put<ApiResponse>(this.apiRecipePath + recipe.id, recipe, { headers: this.security.getAppTocken() }) }
     private delete(recipe: Recipe) { return this.httpClient.delete<ApiResponse>(this.apiRecipePath + recipe.id, { headers: this.security.getAppTocken() }) }
