@@ -60,6 +60,14 @@
                         (click)="currentRecipe = recipe; menu.toggle($event)">
                     </p-button>
                 </div>
+                <div class="absolute top-50 left-0 m-3">
+                    <button pButton pRipple type="button" class="p-button-rounded p-button-text p-button-warning"
+                        icon="pi pi-star-fill" *ngIf="recipe.favorit" (click)="switchFavorit(recipe)">
+                    </button>
+                    <button pButton pRipple type="button" class="p-button-rounded p-button-text p-button-warning"
+                        icon="pi pi-star" *ngIf="!recipe.favorit" (click)="switchFavorit(recipe)">
+                    </button>
+                </div>
             </div>
         </div>
     </ng-template>

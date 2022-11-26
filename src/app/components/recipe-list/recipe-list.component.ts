@@ -77,6 +77,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     }
   }
 
+  switchFavorit(recipe: Recipe) {
+    recipe.favorit = !recipe.favorit;
+    this.recipeSer.updateRecipe(recipe, () => { });
+  }
+
   delete() {
     if (this.currentRecipe) {
       this.confirmationServ.confirm({

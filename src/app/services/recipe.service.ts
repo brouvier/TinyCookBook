@@ -8,7 +8,7 @@ import { SecurityService } from "./security.service";
 
 export interface Recipe {
     id?: number,
-    name: string, path: string,
+    name: string, path: string, favorit: boolean | number,
     imgPath?: string, comment?: string, keywords?: string,
 
     error?: string,
@@ -20,7 +20,7 @@ interface ApiResponse {
     error?: { code: number, status: string }
 }
 
-export const EMPTY_RECIPE: Recipe = { name: "", path: "" }
+export const EMPTY_RECIPE: Recipe = { name: "", path: "", favorit: false }
 
 @Injectable()
 export class RecipeService {
@@ -37,9 +37,23 @@ export class RecipeService {
         this.select().subscribe({
             next: (next) => {
                 next.forEach(r => {
+                    r.favorit = r.favorit === 1 ? true : false;
                     r.display = false;
                     r.filterKeyWorkds = r.name + (r.keywords == undefined ? "" : " " + r.keywords);
                 });
+                next.sort((a, b) => {
+                    if (a.favorit && !b.favorit)
+                        return -1;
+                    if (!a.favorit && b.favorit)
+                        return 1;
+
+                    if (a.name < b.name)
+                        return -1;
+                    if (a.name > b.name)
+                        return 1;
+                    // a doit être égal à b
+                    return 0;
+                })
                 this.recipesSubject$.next(next);
             },
             error: (error) => this.messageServ.add({ severity: 'error', summary: 'Erreur de base de donnée', detail: error })
@@ -62,6 +76,8 @@ export class RecipeService {
     }
 
     public insertRecipe(recipe: Recipe, callback: Function) {
+        recipe.favorit = recipe.favorit === true ? 1 : 0;
+
         this.insert(recipe).subscribe({
             next: (next) => {
                 console.log('insert recipe :', next);
@@ -81,6 +97,7 @@ export class RecipeService {
         // suppression des attributs liés à l'affichage
         delete recipe['display'];
         delete recipe['filterKeyWorkds'];
+        recipe.favorit = recipe.favorit === true ? 1 : 0;
 
         this.update(recipe).subscribe({
             next: (next) => {
