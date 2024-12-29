@@ -1,20 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Recipe, RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-edit',
-  template: `
-    <p>
-      recipe-edit works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: 'recipe-edit.component.html'
 })
 export class RecipeEditComponent implements OnInit {
 
-  constructor() { }
+  recipe: Recipe;
+
+  constructor(private ref: DynamicDialogRef, private config: DynamicDialogConfig, private recipeSer: RecipeService) {
+    this.recipe = { ...this.config.data };
+  }
 
   ngOnInit(): void {
+  }
+
+  save() {
+    if (this.recipe.id) {
+      this.recipeSer.updateRecipe(this.recipe, () => { this.cancel() });
+    } else {
+      this.recipeSer.insertRecipe(this.recipe, () => { this.cancel() });
+    }
+  }
+
+  cancel() {
+    this.ref.close();
   }
 
 }

@@ -4,3 +4,4 @@ node_modules
 
 package-lock.json
 deploy.ps1
+src/environments/environment.prod.ts

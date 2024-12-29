@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiLocation: 'http://192.168.0.17/CookBook/api/',
+  salt: 'fruSG+=u9dpB',
+  apiLimit: '&limit=15'
 };
 
 /*

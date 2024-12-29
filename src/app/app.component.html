@@ -1,10 +1,18 @@
 <div class="fixed top-0 left-0 w-full p-2 surface-300 flex align-items-center flex-wrap z-3">
     <img src="assets/cooking-book.png" height="40" class="mr-2">
     <span class="text-3xl font-semibold text-blue-800">My Tiny Cook Book</span>
+    <i class="ml-auto mr-2 pi pi-lock" (click)="lock()" *ngIf="isUnlock()"></i>
 </div>
 
 <div class="m-2 mt-7 p-3 border-round shadow-4 z-0">
     <router-outlet></router-outlet>
+</div>
+
+<!-- Spinner -->
+<p-blockUI [blocked]="(spinner$ | async) ?? false" style="z-index: 9997;"></p-blockUI>
+<div class="position-absolute top-50 start-50 translate-middle" style="z-index: 9998;"
+    *ngIf="(spinner$ | async) ?? false">
+    <p-progressSpinner></p-progressSpinner>
 </div>
 
 <!-- Messages pop up -->
